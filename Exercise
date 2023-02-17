@@ -1,0 +1,32 @@
+def count_duplicate_chars(input_string):
+    # Convert input string to lowercase to make the comparison case-insensitive
+    input_string = input_string.lower()
+
+    # Create a set to store characters that occur more than once
+    seen_chars = set()
+
+    # Create a set to store characters that have already been counted as duplicates
+    counted_chars = set()
+
+    # Loop through each character in the input string
+    for char in input_string:
+        # If the character has already been counted as a duplicate, skip it
+        if char in counted_chars:
+            continue
+
+        # If the character occurs more than once, add it to the seen_chars set
+        if input_string.count(char) > 1:
+            seen_chars.add(char)
+
+        # Add the character to the counted_chars set
+        counted_chars.add(char)
+
+    # Return the length of the seen_chars set
+    return len(seen_chars)
+print(count_duplicate_chars("abcde")) # Output: 0
+print(count_duplicate_chars("aabbcde")) # Output: 2
+print(count_duplicate_chars("aabBcde")) # Output: 2
+print(count_duplicate_chars("indivisibility")) # Output: 1
+print(count_duplicate_chars("Indivisibilities")) # Output: 2
+print(count_duplicate_chars("aA11")) # Output: 2
+print(count_duplicate_chars("ABBA")) # Output: 2
